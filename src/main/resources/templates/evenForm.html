@@ -11,7 +11,13 @@
 <form th:action="@{/evenform}" th:object="${evenData}" method="post">
     <label>Number:</label>
     <input type="number" th:field="*{number}" />
+
     <button type="submit">Check</button>
+
+    <div th:if="${#fields.hasErrors('number')}"
+         th:errors="*{number}"
+         style="color:#b00020; margin-top:6px; font-size:0.95em;">
+    </div>
 </form>
 
 <a th:href="@{/}">Back to home</a>

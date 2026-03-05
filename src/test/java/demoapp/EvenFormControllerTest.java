@@ -7,27 +7,27 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class EvenControllerTest {
+public class EvenFormControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void evenTrue() throws Exception {
-        this.mockMvc.perform(get("/even/4"))
+    public void postValidNumberShowsResult() throws Exception {
+        this.mockMvc.perform(post("/evenform").param("number", "4"))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("4 is even")));
     }
 
     @Test
-    public void evenFalse() throws Exception {
-        this.mockMvc.perform(get("/even/5"))
+    public void postInvalidNumberShowsValidationError() throws Exception {
+        this.mockMvc.perform(post("/evenform").param("number", "-1"))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("5 is NOT even")));
+                .andExpect(content().string(containsString("Number must be positive")));
     }
 }
