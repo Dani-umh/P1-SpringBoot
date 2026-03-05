@@ -13,10 +13,18 @@
     <label>Number 1:</label>
     <input type="number" step="any" th:field="*{number1}" />
     <br>
+    <div th:if="${#fields.hasErrors('number1')}"
+         th:errors="*{number1}"
+         style="color:red">
+    </div>
 
     <label>Number 2:</label>
     <input type="number" step="any" th:field="*{number2}" />
     <br>
+    <div th:if="${#fields.hasErrors('number2')}"
+         th:errors="*{number2}"
+         style="color:red">
+    </div>
 
     <label>Operation:</label>
     <select th:field="*{operation}">
@@ -26,6 +34,10 @@
         <option value="/">/</option>
     </select>
     <br>
+    <div th:if="${#fields.hasErrors('operation')}"
+         th:errors="*{operation}"
+         style="color:red">
+    </div>
 
     <button type="submit">Calculate</button>
 
