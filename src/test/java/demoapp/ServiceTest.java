@@ -4,6 +4,8 @@ import demoapp.service.SaludoService;
 import demoapp.service.PalindromeService;
 import demoapp.service.EvenService;
 import demoapp.service.SquareService;
+import demoapp.service.CalculatorService;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -62,5 +64,40 @@ public class ServiceTest {
     @Test
     public void squareFalse() throws Exception {
         assertThat(squareService.isSecondSquareOfFirst(4, 15)).isFalse();
+    }
+
+    @Autowired
+    CalculatorService calculatorService;
+
+    @Test
+    public void calculatorAdd() throws Exception {
+        assertThat(calculatorService.calculate(4, 2, "+")).isEqualTo(6);
+    }
+
+    @Test
+    public void calculatorSubtract() throws Exception {
+        assertThat(calculatorService.calculate(4, 2, "-")).isEqualTo(2);
+    }
+
+    @Test
+    public void calculatorMultiply() throws Exception {
+        assertThat(calculatorService.calculate(4, 2, "*")).isEqualTo(8);
+    }
+
+    @Test
+    public void calculatorDivide() throws Exception {
+        assertThat(calculatorService.calculate(4, 2, "/")).isEqualTo(2);
+    }
+
+    @Test
+    public void calculatorDivisionByZero() throws Exception {
+        assertThatThrownBy(() -> calculatorService.calculate(4, 0, "/"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @Test
+    public void calculatorInvalidOperation() throws Exception {
+        assertThatThrownBy(() -> calculatorService.calculate(4, 2, "%"))
+                .isInstanceOf(IllegalArgumentException.class);
     }
 }
