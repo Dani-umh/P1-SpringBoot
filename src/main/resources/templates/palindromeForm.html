@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Palindrome Form</title>
+</head>
+<body>
+
+<h2>Check palindrome</h2>
+
+<form th:action="@{/palindromeform}" th:object="${palindromeData}" method="post">
+    <label>Word:</label>
+    <input type="text" th:field="*{word}" />
+    <button type="submit">Check</button>
+</form>
+
+<a href="/">Back to home</a>
+
+</body>
+</html>
