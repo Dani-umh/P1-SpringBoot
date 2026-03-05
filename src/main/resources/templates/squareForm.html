@@ -12,11 +12,19 @@
 
     <label>First number:</label>
     <input type="number" th:field="*{first}" />
-    <br/>
+    <br>
+    <div th:if="${#fields.hasErrors('first')}"
+         th:errors="*{first}"
+         style="color:red">
+    </div>
 
     <label>Second number:</label>
     <input type="number" th:field="*{second}" />
-    <br/>
+    <br>
+    <div th:if="${#fields.hasErrors('second')}"
+         th:errors="*{second}"
+         style="color:red">
+    </div>
 
     <button type="submit">Check</button>
 
