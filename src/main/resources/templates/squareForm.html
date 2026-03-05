@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Square Form</title>
+</head>
+<body>
+
+<h2>Check square</h2>
+
+<form th:action="@{/squareform}" th:object="${squareData}" method="post">
+
+    <label>First number:</label>
+    <input type="number" th:field="*{first}" />
+    <br/>
+
+    <label>Second number:</label>
+    <input type="number" th:field="*{second}" />
+    <br/>
+
+    <button type="submit">Check</button>
+
+</form>
+
+<a th:href="@{/}">Back to home</a>
+
+</body>
+</html>
