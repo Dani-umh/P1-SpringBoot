@@ -12,6 +12,11 @@
     <label>Word:</label>
     <input type="text" th:field="*{word}" />
     <button type="submit">Check</button>
+
+    <div th:if="${#fields.hasErrors('word')}"
+         th:errors="*{word}"
+         style="color:#b00020; margin-top:6px; font-size:0.95em;">
+    </div>
 </form>
 
 <a href="/">Back to home</a>
