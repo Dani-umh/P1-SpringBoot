@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.MediaType;
 
 import javax.validation.Valid;
 
@@ -21,12 +22,13 @@ public class SaludoControllerForm {
         return "formRegistro";
     }
 
-    @PostMapping("/saludoform")
-    public String checkPersonInfo(@ModelAttribute @Valid UserData userData, BindingResult bindingResult, Model model) {
+    @PostMapping(value = "/saludoform", produces = MediaType.TEXT_PLAIN_VALUE)
+    @ResponseBody
+    public String checkPersonInfo(@ModelAttribute @Valid UserData userData,
+                                  BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "formRegistro";
+            return "ERROR";
         }
-        model.addAttribute("mensaje", service.saluda(userData.getNombre()));
-        return "saludo";
+        return "Hello " + userData.getNombre();
     }
 }
