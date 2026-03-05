@@ -1,6 +1,7 @@
 package demoapp;
 
 import demoapp.service.SaludoService;
+import demoapp.service.PalindromeService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,5 +21,18 @@ public class ServiceTest {
     @Test
     public void serviceSaludo() throws Exception {
         assertThat(saludo.saluda("Juan")).isEqualTo("Hola Juan");
+    }
+
+    @Autowired
+    PalindromeService palindromeService;
+
+    @Test
+    public void palindromeTrue() throws Exception {
+        assertThat(palindromeService.isPalindrome("reconocer")).isTrue();
+    }
+
+    @Test
+    public void palindromeFalse() throws Exception {
+        assertThat(palindromeService.isPalindrome("hola")).isFalse();
     }
 }
