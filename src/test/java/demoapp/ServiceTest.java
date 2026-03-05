@@ -3,6 +3,7 @@ package demoapp;
 import demoapp.service.SaludoService;
 import demoapp.service.PalindromeService;
 import demoapp.service.EvenService;
+import demoapp.service.SquareService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -48,5 +49,18 @@ public class ServiceTest {
     @Test
     public void evenFalse() throws Exception {
         assertThat(evenService.isEven(5)).isFalse();
+    }
+
+    @Autowired
+    SquareService squareService;
+
+    @Test
+    public void squareTrue() throws Exception {
+        assertThat(squareService.isSecondSquareOfFirst(4, 16)).isTrue();
+    }
+
+    @Test
+    public void squareFalse() throws Exception {
+        assertThat(squareService.isSecondSquareOfFirst(4, 15)).isFalse();
     }
 }
