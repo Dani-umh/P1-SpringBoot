@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator Result</title>
+</head>
+<body>
+
+<h2>Calculator Result</h2>
+
+<p>
+    Result:
+    <span th:text="${result}"></span>
+</p>
+
+<a th:href="@{/calculatorform}">Back</a>
+
+</body>
+</html>
