@@ -5,6 +5,7 @@ import demoapp.service.PalindromeService;
 import demoapp.service.EvenService;
 import demoapp.service.SquareService;
 import demoapp.service.CalculatorService;
+import demoapp.service.PrimeService;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,5 +100,27 @@ public class ServiceTest {
     public void calculatorInvalidOperation() throws Exception {
         assertThatThrownBy(() -> calculatorService.calculate(4, 2, "%"))
                 .isInstanceOf(IllegalArgumentException.class);
+    }
+    @Autowired
+    PrimeService primeService;
+
+    @Test
+    public void primeTrue() throws Exception {
+        assertThat(primeService.isPrime(7)).isTrue();
+    }
+
+    @Test
+    public void primeFalse() throws Exception {
+        assertThat(primeService.isPrime(8)).isFalse();
+    }
+
+    @Test
+    public void primeOneFalse() throws Exception {
+        assertThat(primeService.isPrime(1)).isFalse();
+    }
+
+    @Test
+    public void primeZeroFalse() throws Exception {
+        assertThat(primeService.isPrime(0)).isFalse();
     }
 }
