@@ -92,6 +92,8 @@ http://localhost:8080/calculatorform
 
 ---
 
+# Funcionalidad adicional (opcional)
+
 ### Prime number
 Comprueba si un número es primo.
 
@@ -99,6 +101,8 @@ Formulario:
 ```
 http://localhost:8080/primeform
 ```
+
+Esta funcionalidad se ha añadido como extensión opcional de la aplicación siguiendo el mismo patrón de arquitectura utilizado en el resto de funcionalidades (controller, service, DTO, formulario Thymeleaf y tests).
 
 ---
 
