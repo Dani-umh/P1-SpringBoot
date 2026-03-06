@@ -14,6 +14,11 @@
     <input type="number" th:field="*{number}" />
     <br>
 
+    <div th:if="${#fields.hasErrors('number')}"
+         th:errors="*{number}"
+         style="color:red">
+    </div>
+
     <button type="submit">Check</button>
 
 </form>

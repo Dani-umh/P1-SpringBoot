@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import org.springframework.validation.BindingResult;
 
 @Controller
 public class PrimeFormController {
@@ -19,7 +21,13 @@ public class PrimeFormController {
     }
 
     @PostMapping("/primeform")
-    public String primeSubmit(@ModelAttribute PrimeData primeData, Model model) {
+    public String primeSubmit(@Valid @ModelAttribute PrimeData primeData,
+                              BindingResult bindingResult,
+                              Model model) {
+
+        if (bindingResult.hasErrors()) {
+            return "primeForm";
+        }
 
         boolean result = primeService.isPrime(primeData.getNumber());
 
