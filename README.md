@@ -92,6 +92,16 @@ http://localhost:8080/calculatorform
 
 ---
 
+### Prime number
+Comprueba si un número es primo.
+
+Formulario:
+```
+http://localhost:8080/primeform
+```
+
+---
+
 # Funcionalidades de ejemplo incluidas en el proyecto base
 
 El proyecto base proporcionado incluye también ejemplos para aprender Thymeleaf:
