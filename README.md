@@ -1,37 +1,152 @@
-# Aplicación inicial Spring Boot
+# Spring Boot Hello World Application
 
-Aplicación básica usando Spring Boot y plantillas Thymeleaf.
+Aplicación desarrollada con **Spring Boot** y **Thymeleaf**
 
-## Requisitos
+La aplicación permite probar diferentes funcionalidades que utilizan:
+
+- Formularios Thymeleaf
+- Validación de datos
+- Lógica en la capa de servicio
+- Controladores web
+- Tests de servicio y controladores
+
+La página principal muestra el nombre del autor y enlaces a todas las funcionalidades implementadas.
+
+Autor: **Daniel Garcia Moreno**
+
+---
+
+# Requisitos
 
 Necesitas tener instalado en tu sistema:
 
 - Java 8
+- Maven (no necesario si usas el wrapper incluido)
 
-## Ejecución
+---
 
-Puedes ejecutar la aplicación usando el _goal_ `run` del _plugin_ Maven 
-de Spring Boot:
+# Ejecución de la aplicación
 
-```
-$ ./mvnw spring-boot:run 
-```   
-
-También puedes generar un `jar` y ejecutarlo:
+Puedes ejecutar la aplicación usando el **Maven Wrapper** incluido en el proyecto:
 
 ```
-$ ./mvnw package
-$ java -jar target/demoapp-0.0.1-SNAPSHOT.jar 
+./mvnw spring-boot:run
 ```
 
-Una vez lanzada la aplicación puedes abrir un navegador y probar los distintos _controllers_:
+Una vez arrancada la aplicación puedes acceder a:
 
-- [http://localhost:8080](http://localhost:8080)
-- [http://localhost:8080/saludo/Pepito](http://localhost:8080/saludo/Pepito)
-- [http://localhost:8080/saludoplantilla/Pepito](http://localhost:8080/saludoplantilla/Pepito)
-- [http://localhost:8080/saludoform](http://localhost:8080/saludoform)
+```
+http://localhost:8080
+```
 
-## Docker image
+Desde la página principal se puede acceder a todas las funcionalidades.
+
+---
+
+# Funcionalidades implementadas
+
+La aplicación incluye las siguientes funcionalidades:
+
+### Palindrome
+Comprueba si una palabra es un palíndromo.
+
+Formulario:
+```
+http://localhost:8080/palindromeform
+```
+
+---
+
+### Even number
+Comprueba si un número es par.
+
+Formulario:
+```
+http://localhost:8080/evenform
+```
+
+---
+
+### Square
+Comprueba si el segundo número es el cuadrado del primero.
+
+Formulario:
+```
+http://localhost:8080/squareform
+```
+
+---
+
+### Calculator
+Calculadora básica que permite realizar operaciones:
+
+- suma
+- resta
+- multiplicación
+- división
+
+Formulario:
+```
+http://localhost:8080/calculatorform
+```
+
+---
+
+# Funcionalidades de ejemplo incluidas en el proyecto base
+
+El proyecto base proporcionado incluye también ejemplos para aprender Thymeleaf:
+
+### Saludo básico
+```
+http://localhost:8080/saludo/Pepito
+```
+
+### Saludo usando plantilla
+```
+http://localhost:8080/saludoplantilla/Pepito
+```
+
+### Formulario de saludo
+```
+http://localhost:8080/saludoform
+```
+
+---
+
+# Tests
+
+El proyecto incluye diferentes tipos de tests:
+
+- Tests de **servicios**
+- Tests de **controladores**
+- Tests de **formularios**
+
+Para ejecutar todos los tests:
+
+```
+./mvnw test
+```
+
+---
+
+# Generar el JAR
+
+También puedes empaquetar la aplicación en un archivo ejecutable:
+
+```
+./mvnw package
+```
+
+Después puedes ejecutarla con:
+
+```
+java -jar target/demoapp-0.0.1-SNAPSHOT.jar
+```
+
+---
+
+# Docker image
 
 Docker Hub public link:
+
 https://hub.docker.com/r/daniumh/p1-spring-boot-app
