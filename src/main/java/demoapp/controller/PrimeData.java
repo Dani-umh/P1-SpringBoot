@@ -4,7 +4,7 @@ import javax.validation.constraints.NotNull;
 
 public class PrimeData {
 
-    @NotNull
+    @NotNull(message = "Number is required")
     private Integer number;
 
     public Integer getNumber() {

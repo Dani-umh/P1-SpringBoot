@@ -127,6 +127,20 @@ http://localhost:8080/saludoform
 
 ---
 
+# Arquitectura de la aplicación
+
+La aplicación sigue una arquitectura típica de **Spring Boot MVC**:
+
+- **Controller layer**: recibe las peticiones HTTP y gestiona los formularios.
+- **Service layer**: contiene la lógica de negocio de cada funcionalidad.
+- **DTO/Data classes**: representan los datos enviados desde los formularios.
+- **Templates Thymeleaf**: se utilizan para mostrar formularios y resultados al usuario.
+
+Cada funcionalidad implementada sigue este mismo patrón:
+Controller → Service → Template.
+
+---
+
 # Tests
 
 El proyecto incluye diferentes tipos de tests:
@@ -158,9 +172,23 @@ java -jar target/demoapp-0.0.1-SNAPSHOT.jar
 ```
 
 ---
+# Repositorio
+
+Código fuente disponible en GitHub:
+
+https://github.com/Dani-umh/P1-SpringBoot
+
+---
 
 # Docker image
 
-Docker Hub public link:
+Docker image available on Docker Hub:
 
 https://hub.docker.com/r/daniumh/p1-spring-boot-app
+
+The final version of the application is published using the tag:
+
+p1-spring-boot-app:final
+
+
+
